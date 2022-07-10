@@ -5,9 +5,9 @@
  * Requires at least: 5.9
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Author:            Amaresh R Joshi (joshia@msu.edu)
+ * License:           GPL-3.0
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       orcid-block
  *
  * @package           create-block
@@ -21,6 +21,6 @@
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_orcid_block_block_init() {
-	register_block_type( __DIR__ . '/build' );
+        register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'create_block_orcid_block_block_init' );
