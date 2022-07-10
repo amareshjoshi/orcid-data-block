@@ -6,7 +6,7 @@
         "title": "ORCiD Information",
         "category": "widgets",
         "icon": "info outline",
-        "description": "Block editing of Data from ORCiD",
+        "description": "ORCiD Information",
         "supports": {
                 "html": false
         },
