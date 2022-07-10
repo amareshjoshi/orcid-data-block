@@ -58,8 +58,8 @@ In addition, when the section_name is `works` two additional optional attributes
 
 Both attributes are optional with default values.
 
-- `works_type` = include only works of that type (default = `all`)
+- `works_type` = include only works of that type (default is `all`)
 - `works_start_year` = include only works with a published year greater than or equal to 
-  the start year (default = `1900`)
+  the start year (default is `1900`)
 
 [List of available work types](https://github.com/ORCID/orcid-model/blob/master/src/main/java/org/orcid/jaxb/model/common/WorkType.java)
