@@ -43,8 +43,6 @@ include( plugin_dir_path( __FILE__ ) . 'orcid-functions.php' );
 register_activation_hook( __FILE__, 'orcid_install' );
 register_deactivation_hook( __FILE__, 'orcid_uninstall' );
 
-add_action( 'admin_menu', 'orcid_create_menu' );
-
 /**
  * install procedures:
  * schedule daily event to update publication lists
