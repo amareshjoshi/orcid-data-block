@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       ORCiD Information
- * Description:       Block editing of Data from ORCiD
+ * Description:       Block editing of data from ORCiD
  * Requires at least: 5.9
  * Requires PHP:      7.0
  * Version:           0.1.0

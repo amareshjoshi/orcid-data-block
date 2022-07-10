@@ -4,9 +4,9 @@
         "name": "create-block/orcid-block",
         "version": "0.1.0",
         "title": "ORCiD Information",
-        "category": "widgets",
-        "icon": "info outline",
-        "description": "ORCiD Information",
+        "category": "embed",
+        "icon": "table",
+        "description": "Add your ORCiD data",
         "supports": {
                 "html": false
         },
