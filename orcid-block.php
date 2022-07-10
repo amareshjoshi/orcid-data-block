@@ -43,6 +43,8 @@ include( plugin_dir_path( __FILE__ ) . 'orcid-functions.php' );
 register_activation_hook( __FILE__, 'orcid_install' );
 register_deactivation_hook( __FILE__, 'orcid_uninstall' );
 
+add_action( 'admin_menu', 'orcid_create_menu' );
+
 /**
  * install procedures:
  * schedule daily event to update publication lists
@@ -61,6 +63,7 @@ function orcid_uninstall() {
 
 //add_action('wp_enqueue_scripts', 'orcid_scripts');
 //add_action('admin_enqueue_scripts', 'orcid_scripts');
+
 /**
  * add javascript and stylesheets to both the admin page and front-end.
  * hooked by 'wp_enqueue_scripts' and 'admin_enqueue_scripts'
