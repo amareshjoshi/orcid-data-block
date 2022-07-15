@@ -15,7 +15,7 @@ using the Gutenberg block editor.
   ```
 - Create a directory in that folder
   ```sh
-  mkdir orcid-block
+  mkdir orcid-data-block
   ```
 - Copy the contents of this repo into that directory
 - Run
@@ -32,6 +32,18 @@ using the Gutenberg block editor.
 - This will create a "My ORCiD Profile" page in the dashboard where you can
   enter your ORCiD ID
 - Add short codes or blocks to any page or post
+
+## Wordpress Debugging
+Edit `wp-config.php` to include
+```php
+//define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
+define( 'WP_DEBUG', true);
+//
+define( 'WP_DEBUG_LOG', true );
+define( 'SCRIPT_DEBUG', true );
+define( 'SAVEQUERIES', true );
+define( 'WP_DEBUG_DISPLAY', true );
+```
 
 ## Block Editing
 TBD
