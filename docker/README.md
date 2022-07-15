@@ -8,8 +8,12 @@
   docker build --tag wordpress_with_xsl --file ./Dockerfile.wordpress_with_xsl .
   ```
 - Run docker for the first time. This will fill thw `wp` dirctory with the WP source code.
-  - `docker-compose up --detach`
-- Log into the WP instance and create a admin user.
-  - `localhost:8000`
-- Run shut down the docker instance: `docker-compose down`
+  ```sh
+  docker-compose up --detach
+  ```
+- Log into the WP instance and create a admin user. `localhost:8000`
+- The following command shuts down the docker instance
+  ```sh
+  docker-compose down
+  ```
   
