@@ -237,11 +237,12 @@ function orcid_data_function( $atts = [], $content = null, $tag = '' ) {
  * @return string ORCiD data as html
  *
  */
-function orcid_data_block_function( $section = "", $works_type = "none", $works_start_year = "3000") {
+function orcid_data_block_function( $section = "", $works_type = "all", $works_start_year = "3000") {
 
   //return "<div>the way is void</div>";
   // 
   // convert to lower case
+  $section = strtolower($section);
 
   //
 	// we want to display the *AUTHOR's* (NOT the viewer's) data

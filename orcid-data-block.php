@@ -21,6 +21,9 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
+/** 
+ *  orcid + orcid_data_block + block_init ()
+*/
 function orcid_orcid_data_block_block_init() {
   // automatically load dependencies and version
   $asset_file = include( plugin_dir_path( __FILE__ ) . 'build/index.asset.php');
@@ -30,6 +33,7 @@ function orcid_orcid_data_block_block_init() {
     __DIR__ . '/build',
     array(
       'api_version' => 2,
+      //'attributes' => [],
       // this line causes an error
       //'editor_script' => 'orcid_orcid_data_block_block_init',
       'render_callback' => 'orcid_data_block_dynamic_render_callback',
@@ -47,17 +51,32 @@ add_action( 'init', 'orcid_orcid_data_block_block_init' );
  * @return {HTML} Element to render.
  */
 function orcid_data_block_dynamic_render_callback( $block_attributes, $content ) {
-  //$section = $block_attributes['section'];
-  $section = "employment";
+  //
+  // HOW send the $block_attributes to the LOG file to examine
+
+  if( array_key_exists( 'section', $block_attributes ) ){
+      $section = $block_attributes['section'];
+  }
+  if( array_key_exists( 'worksType', $block_attributes ) ){
+    $works_type = $block_attributes['worksType'];
+  } else {
+    $works_type = "all";  
+  }
+  if( array_key_exists( 'worksStartYear', $block_attributes ) ){
+    $works_start_year = $block_attributes['worksStartYear'];
+  } else {
+    $works_start_year = "3000";  
+  }
   $time_stamp = new DateTime();
   $time_stamp_str = $time_stamp->format('Y-m-d H:i:s');
-  $orcid_html = "<div class=\"orcid-timestamp\">The time is now:&nbsp;<b>{$time_stamp_str}</b></div>";
+  //$orcid_html = "<div class=\"orcid-timestamp\">The time is now:&nbsp;<b>{$time_stamp_str}</b></div>";
+  $orcid_html = "";
   //+++++++++++++++++++++  
-  $orcid_html = $orcid_html . "<ul>";  
-  foreach($block_attributes as $key => $value){
-    $orcid_html = $orcid_html . "<li>{$key}:{$value}</li>";      
-  }
-  $orcid_html = $orcid_html . "</ul>";  
+  // $orcid_html = $orcid_html . "<ul>";  
+  // foreach($block_attributes as $key => $value){
+  //   $orcid_html = $orcid_html . "<li>{$key}:{$value}</li>";      
+  // }
+  // $orcid_html = $orcid_html . "</ul>";  
   //+++++++++++++++++++++  
 
   $orcid_html = $orcid_html . orcid_data_block_function($section);

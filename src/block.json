@@ -11,10 +11,14 @@
                 "html": false
         },
         "attributes": {
-            "section": {
-              "type": "string",
-              "source": "text",
-              "selecttor": "div"
+          "section": {
+            "type": "string"
+          },
+          "worksType": { 
+            "type": "string"
+          },
+          "worksStartYear": { 
+            "type": "string"
           }
         },
         "textdomain": "orcid-data-block",
