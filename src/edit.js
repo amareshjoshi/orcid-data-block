@@ -12,6 +12,7 @@ import { __ } from '@wordpress/i18n';
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
 import { useBlockProps } from '@wordpress/block-editor';
+import { useSelect } from "@wordpress/data";
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -20,6 +21,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -30,12 +32,21 @@ import './editor.scss';
  * @return {WPElement} Element to render.
  */
 export default function Edit() {
-	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'ORCiD Information – hello from the editor!',
-				'orcid-block'
-			) }
-		</p>
-	);
+  const blockProps = useBlockProps();
+  const posts = useSelect((select) => {
+    return select("core").getEntityRecords("postType", "post");
+  }, []);
+
+  //need to pass a section code (e.g. "employment" "education") to the render call back function
+
+  return(<div {...blockProps}>ORCiD Data Placeholder</div>);
+  // return (
+  //   <div {...blockProps}>
+  //     {!posts && "Loading"}
+  //     {posts && posts.length === 0 && "No Posts"}
+  //     {posts && posts.length > 0 && (
+  //       <a href={posts[0].link}>{posts[0].title.rendered}&nbsp;(edit mode)</a>
+  //     )}
+  //   </div>
+  // );
 }

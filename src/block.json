@@ -1,16 +1,16 @@
 {
         "$schema": "https://schemas.wp.org/trunk/block.json",
         "apiVersion": 2,
-        "name": "create-block/orcid-block",
+        "name": "orcid/orcid-data-block",
         "version": "0.1.0",
-        "title": "ORCiD Information",
+        "title": "ORCiD Data",
         "category": "embed",
-        "icon": "table",
-        "description": "Add your ORCiD data",
+        "icon": "info-outline",
+        "description": "Add your information from ORCiD.org to your pages.",
         "supports": {
                 "html": false
         },
-        "textdomain": "orcid-block",
+        "textdomain": "orcid-data-block",
         "editorScript": "file:./index.js",
         "editorStyle": "file:./index.css",
         "style": "file:./style-index.css"
