@@ -10,6 +10,13 @@
         "supports": {
                 "html": false
         },
+        "attributes": {
+            "section": {
+              "type": "string",
+              "source": "text",
+              "selecttor": "div"
+          }
+        },
         "textdomain": "orcid-data-block",
         "editorScript": "file:./index.js",
         "editorStyle": "file:./index.css",

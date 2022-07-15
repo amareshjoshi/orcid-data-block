@@ -14,38 +14,6 @@
  * @package           orcid
  */
 
-function orcid_data_block_dynamic_render_callback( $block_attributes, $content ) {
-  // $recent_posts = wp_get_recent_posts( array(
-  //     'numberposts' => 10,
-  //     'post_status' => 'publish',
-  // ) );
-  // if ( count( $recent_posts ) === 0 ) {
-  //     return 'No posts';
-  // }
-
-  // loop
-  // $posts_list = "<ul>";
-  // foreach ($recent_posts as $post ) {
-  //   $post_id = $post['ID'];
-  //   $link = esc_url( get_permalink( $post_id ) );
-  //   $title = esc_html( get_the_title( $post_id ));
-  //   $item = "<li><a class=\"wp-orcid-block-post-item\" href=\"{$link}\">{$title}</a></li>";
-  //   $posts_list = $posts_list . $item;
-  // }
-  // $posts_list = $posts_list . "</ul>";
-  // return $posts_list;
-  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  //$section = $block_attributes['section'];
-  $section = "employment";
-  $time_stamp = new DateTime();
-  $time_stamp_str = $time_stamp->format('Y-m-d H:i:s');
-  $orcid_html = "<div class=\"orcid-timestamp\">Timeis now:&nbsp;<b>{$time_stamp_str}</b></div>";
-  $orcid_html = $orcid_html . orcid_data_block_function($section);
-
-  return $orcid_html;
-  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-}
-
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
@@ -69,6 +37,32 @@ function orcid_orcid_data_block_block_init() {
   );
 }
 add_action( 'init', 'orcid_orcid_data_block_block_init' );
+
+/**
+ * Callback function to display the data from ORCiD:section
+ * 
+ * @param {Object}   $block_attributes   Block attributes object
+ * @param {String}   $contents Block contents
+ *
+ * @return {HTML} Element to render.
+ */
+function orcid_data_block_dynamic_render_callback( $block_attributes, $content ) {
+  //$section = $block_attributes['section'];
+  $section = "employment";
+  $time_stamp = new DateTime();
+  $time_stamp_str = $time_stamp->format('Y-m-d H:i:s');
+  $orcid_html = "<div class=\"orcid-timestamp\">The time is now:&nbsp;<b>{$time_stamp_str}</b></div>";
+  //+++++++++++++++++++++  
+  $orcid_html = $orcid_html . "<ul>";  
+  foreach($block_attributes as $key => $value){
+    $orcid_html = $orcid_html . "<li>{$key}:{$value}</li>";      
+  }
+  $orcid_html = $orcid_html . "</ul>";  
+  //+++++++++++++++++++++  
+
+  $orcid_html = $orcid_html . orcid_data_block_function($section);
+  return $orcid_html;
+}
 
 /**
  * 

@@ -20,16 +20,12 @@ import { useBlockProps } from '@wordpress/block-editor';
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#save
  *
+ * @param {Object} props            Properties passed to the function.
+ * @param {Object} props.attributes Available block attributes.
  * @return {WPElement} Element to render.
  */
-export default function save() {
-  return null;
-	// return (
-	// 	<p { ...useBlockProps.save() }>
-	// 		{ __(
-	// 			'ORCiD: save()',
-	// 			'orcid-data-block'
-	// 		) }
-	// 	</p>
-	// );
+export default function Save( { attributes } ) {
+	const blockProps = useBlockProps.save();
+	return <div { ...blockProps }>{ attributes.section }</div>;
+  //return null;
 }
