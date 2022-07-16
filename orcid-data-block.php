@@ -54,32 +54,38 @@ function orcid_data_block_dynamic_render_callback( $block_attributes, $content )
   //
   // HOW send the $block_attributes to the LOG file to examine
 
-  if( array_key_exists( 'section', $block_attributes ) ){
-      $section = $block_attributes['section'];
-  }
-  if( array_key_exists( 'worksType', $block_attributes ) ){
-    $works_type = $block_attributes['worksType'];
-  } else {
-    $works_type = "all";  
-  }
-  if( array_key_exists( 'worksStartYear', $block_attributes ) ){
-    $works_start_year = $block_attributes['worksStartYear'];
-  } else {
-    $works_start_year = "3000";  
-  }
+//   if( array_key_exists( 'section', $block_attributes ) ){
+//       $section = $block_attributes['section'];
+//   }
+//   if( array_key_exists( 'worksType', $block_attributes ) ){
+//     $works_type = $block_attributes['worksType'];
+//   } else {
+//     $works_type = "all";  
+//   }
+//   if( array_key_exists( 'worksStartYear', $block_attributes ) ){
+//     $works_start_year = $block_attributes['worksStartYear'];
+//   } else {
+//     $works_start_year = "3000";  
+//   }
+
+  $section = $block_attributes['section'];
+  $works_start_year = $block_attributes['worksStartYear'];
+  $works_type = $block_attributes['worksType'];
+  
+
   $time_stamp = new DateTime();
   $time_stamp_str = $time_stamp->format('Y-m-d H:i:s');
   //$orcid_html = "<div class=\"orcid-timestamp\">The time is now:&nbsp;<b>{$time_stamp_str}</b></div>";
   $orcid_html = "";
   //+++++++++++++++++++++  
-  // $orcid_html = $orcid_html . "<ul>";  
-  // foreach($block_attributes as $key => $value){
-  //   $orcid_html = $orcid_html . "<li>{$key}:{$value}</li>";      
-  // }
-  // $orcid_html = $orcid_html . "</ul>";  
+//   $orcid_html = $orcid_html . "<ul>";  
+//   foreach($block_attributes as $key => $value){
+//     $orcid_html = $orcid_html . "<li>{$key}:{$value}</li>";      
+//   }
+//   $orcid_html = $orcid_html . "</ul>";  
   //+++++++++++++++++++++  
 
-  $orcid_html = $orcid_html . orcid_data_block_function($section);
+  $orcid_html = $orcid_html . orcid_data_block_function($section, $works_type, $works_start_year);
   return $orcid_html;
 }
 
