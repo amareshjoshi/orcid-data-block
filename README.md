@@ -7,7 +7,7 @@ Any facet of the user's ORCiD can be added to WP pages or posts using WP shortco
 using the Gutenberg block editor.
 
 ## Installation
-
+- To setup Docker container for development see the instructions in: `docker\README.md` 
 - Make sure `npm` is installed
 - Go the WP plugins folder
   ```sh
