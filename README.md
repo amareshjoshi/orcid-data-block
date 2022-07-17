@@ -7,31 +7,27 @@ Any facet of the user's ORCiD can be added to WP pages or posts using WP shortco
 using the Gutenberg block editor.
 
 ## Installation
-- To setup Docker container for development see the instructions in: `docker\README.md` 
-- Make sure `npm` is installed
-- Go the WP plugins folder
+- Create a development directory.
+- Clone the repo inside that folder. This will create a `orcid-wp-plugin-block`.
+- Copy the contents of `orcid-wp-plugin-block/docker` into the development directory.
+- Setup and run Docker
+	- Read the `README.md` file for instructions. 
+- Make sure `npm` is installed.
+- Copy the plugin files into the WP plugins folder:
+	- `cp -r  orcid-wp-plugin-block wp/wp-content/plugins/`
+- cd to `orcid-wp-plugin-block` and run:
   ```sh
-  cd ...\wp\wp-content\plugins
-  ```
-- Create a directory in that folder
-  ```sh
-  mkdir orcid-data-block
-  ```
-- Copy the contents of this repo into that directory
-- Run
-  ```sh
+	cd wp/wp-content/plugins/orcid-wp-plugin-block
   # install node.js dependencies
-  npm install
-  # run one of the following
-  # for development
-  npm run start
-  # for production
-  npm run build
+	npm install
+	# run one of the following
+  npm run start   # for development
+  npm run build   # for production
   ```
-- Activate the plugin from Wordpress
+- Activate the plugin from Wordpress.
 - This will create a "My ORCiD Profile" page in the dashboard where you can
-  enter your ORCiD ID
-- Add short codes or blocks to any page or post
+  enter your ORCiD ID.
+- You can then add short codes or blocks to any page or post.
 
 ## Wordpress Debugging
 Edit `wp-config.php` to include
@@ -46,7 +42,7 @@ define( 'WP_DEBUG_DISPLAY', true );
 ```
 
 ## Block Editing
-TBD
+The plugin will create an ORCiD block.
 
 ## Shortcodes
 Shortcodes used with the ORCiD plugin take the form `[orcid-data section="section_name"]`
