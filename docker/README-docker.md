@@ -13,7 +13,7 @@
   ```sh
   docker-compose up --detach
   ```
-- Log into the WP instance (`localhost:8000`) and create a admin user. 
+- Log into the WP instance (`localhost:8000`) and create an admin user. 
 - To shut down the docker instance run:
   ```sh
   docker-compose down
