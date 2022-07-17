@@ -1,6 +1,10 @@
 # Docker Installation Instructions for WP ORCiD Plugin
 
 ## Steps
+- Create the folders:
+```sh
+mkdir wp log
+```
 - Create the custom WP image:
   ```sh
   docker build --tag wordpress_with_xsl --file ./Dockerfile.wordpress_with_xsl .
