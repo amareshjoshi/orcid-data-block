@@ -8,11 +8,7 @@ using the Gutenberg block editor.
 
 ## Installation
 - Create a development directory.
-- Clone the repo inside that folder. This will create a `orcid-wp-plugin-block` folder.
-- Rename the folder:
-  ```
-  mv orcid-wp-plugin-block orcid-data-block
-  ```
+- Clone the repo inside that folder. This will create a `orcid-data-block` folder.
 - Copy the contents of `orcid-data-block/docker` into the development directory.
 - Setup and run Docker
 	- Read the `README-docker.md` file for instructions. 
